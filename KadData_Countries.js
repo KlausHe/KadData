@@ -305,6 +305,26 @@ export const Data_Country_Descriptions = {
   tld: "Top-Level-Domains im Internet",
 };
 
+export function Data_GetCountryByKey(key = "cca3", value) {
+  for (let i = 0; i < Data_Country_CodesIso3166.length; i++) {
+    if (Data_Country_CodesIso3166[i][key].toLowerCase() === value.toLowerCase()) return Data_Country_CodesIso3166[i];
+  }
+  return null;
+}
+
+export function Data_GetReducedCountryList(keys = ["cca3", "nameDE"]) {
+  if (keys == null || keys.length == 0) return;
+  let newList = [];
+  for (let data of Data_Country_CodesIso3166) {
+    let obj = {};
+    for (let key of keys) {
+      obj[key] = data[key];
+    }
+    newList.push(obj);
+  }
+  return newList;
+}
+
 export const Data_Country_CodesIso3166 = [
   {
     nameDE: "Mongolei",
