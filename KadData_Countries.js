@@ -305,11 +305,36 @@ export const Data_Country_Descriptions = {
   tld: "Top-Level-Domains im Internet",
 };
 
-export function Data_GetCountryByKey(key = "cca3", value) {
-  for (let i = 0; i < Data_Country_CodesIso3166.length; i++) {
-    if (Data_Country_CodesIso3166[i][key].toLowerCase() === value.toLowerCase()) return Data_Country_CodesIso3166[i];
+export function Data_GetCountryByKey(value, key = "cca3") {
+  if (Array.isArray(Data_Country_CodesIso3166[0][key])) {
+    for (let country of Data_Country_CodesIso3166) {
+      if (country[key].includes(value)) return country;
+    }
+  } else {
+    for (let country of Data_Country_CodesIso3166) {
+      if (country[key].toLowerCase() === value.toLowerCase()) return country;
+    }
   }
   return null;
+}
+
+export function Data_GetCountriesByProperty(properties = { continents: "Asia" }) {
+  let filteredArray = Data_Country_CodesIso3166;
+  for (const [key, value] of Object.entries(properties)) {
+    if (filteredArray.length == 0) return [];
+    if (Array.isArray(Data_Country_CodesIso3166[0][key])) {
+      filteredArray = filteredArray.filter((item) => {
+        if (item[key] === undefined) return false;
+        return item[key].includes(value);
+      });
+    } else {
+      filteredArray = filteredArray.filter((item) => {
+        if (item[key] === undefined) return false;
+        return item[key] == value;
+      });
+    }
+  }
+  return filteredArray;
 }
 
 export function Data_GetReducedCountryList(keys = ["cca3", "nameDE"]) {
