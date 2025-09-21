@@ -1,4 +1,4 @@
-# Collection of utility data from the "KAD-Universe"
+# Collection of utility data for the "KAD"
 
 Link to website\
  `https://klaushe.github.io/KAD/`\
