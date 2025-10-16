@@ -1,4 +1,5 @@
 export const Data_Currencies = [
+  // ISO 4217:2015
   { cc: "AED", symbol: "\u062f.\u0625;", name: "UAE dirham" },
   { cc: "AFN", symbol: "Afs", name: "Afghan afghani" },
   { cc: "ALL", symbol: "L", name: "Albanian lek" },
@@ -51,7 +52,6 @@ export const Data_Currencies = [
   { cc: "GIP", symbol: "\u00a3", name: "Gibraltar pound" },
   { cc: "GMD", symbol: "D", name: "Gambian dalasi" },
   { cc: "GNF", symbol: "FG", name: "Guinean franc" },
-  { cc: "GQE", symbol: "CFA", name: "Central African CFA franc" },
   { cc: "GTQ", symbol: "Q", name: "Guatemalan quetzal" },
   { cc: "GYD", symbol: "GY$", name: "Guyanese dollar" },
   { cc: "HKD", symbol: "HK$", name: "Hong Kong dollar" },
